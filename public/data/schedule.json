@@ -1,0 +1,47 @@
+{
+  "eventDate": "2026-06-14",
+  "events": [
+    {
+      "id": 1,
+      "time": "14:00",
+      "title": "Guests Arrival",
+      "description": "Welcome and registration of guests",
+      "location": "Venue Entrance"
+    },
+    {
+      "id": 2,
+      "time": "14:30",
+      "title": "Ceremony Begins",
+      "description": "The main wedding ceremony",
+      "location": "Main Hall"
+    },
+    {
+      "id": 3,
+      "time": "15:30",
+      "title": "Photos & Cocktail Hour",
+      "description": "Professional photos and light refreshments",
+      "location": "Photo Area & Lounge"
+    },
+    {
+      "id": 4,
+      "time": "16:30",
+      "title": "Dinner Reception",
+      "description": "Dinner service and toasts",
+      "location": "Main Hall"
+    },
+    {
+      "id": 5,
+      "time": "18:00",
+      "title": "First Dance",
+      "description": "First dance and dancing begins",
+      "location": "Main Hall"
+    },
+    {
+      "id": 6,
+      "time": "22:00",
+      "title": "Send-Off",
+      "description": "Farewell and end of celebration",
+      "location": "Venue Entrance"
+    }
+  ]
+}

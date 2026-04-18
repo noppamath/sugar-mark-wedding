@@ -1,0 +1,54 @@
+{
+  "title": "Wedding Ceremony",
+  "duration": "45 minutes",
+  "location": "Main Hall",
+  "startTime": "14:30",
+  "description": "Join us as Sugar and Mark unite in marriage",
+  "processional": {
+    "order": [
+      "Ushers",
+      "Bridesmaids",
+      "Groomsmen",
+      "Parents of Bride",
+      "Bride's Father and Bride",
+      "Groom"
+    ]
+  },
+  "participants": [
+    {
+      "name": "Reverend Johnson",
+      "role": "Officiant"
+    },
+    {
+      "name": "Sarah Miller",
+      "role": "Maid of Honor"
+    },
+    {
+      "name": "James Davis",
+      "role": "Best Man"
+    }
+  ],
+  "specialMoments": [
+    {
+      "time": "14:35",
+      "description": "Exchange of vows"
+    },
+    {
+      "time": "14:40",
+      "description": "Ring exchange"
+    },
+    {
+      "time": "14:42",
+      "description": "First kiss"
+    },
+    {
+      "time": "14:45",
+      "description": "Presentation as married couple"
+    }
+  ],
+  "traditions": [
+    "Unity candle ceremony",
+    "Handfasting ritual"
+  ],
+  "notes": "Please turn off cell phones and cameras. Professional photographer will capture all moments."
+}

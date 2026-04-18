@@ -1,0 +1,46 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js application
+        run: npm run build
+        env:
+          GCS_PROJECT_ID: ${{ secrets.GCS_PROJECT_ID }}
+          GCS_BUCKET_NAME: ${{ secrets.GCS_BUCKET_NAME }}
+          GCS_PRIVATE_KEY_ID: ${{ secrets.GCS_PRIVATE_KEY_ID }}
+          GCS_PRIVATE_KEY: ${{ secrets.GCS_PRIVATE_KEY }}
+          GCS_CLIENT_EMAIL: ${{ secrets.GCS_CLIENT_EMAIL }}
+          GCS_CLIENT_ID: ${{ secrets.GCS_CLIENT_ID }}
+          GCS_AUTH_URI: ${{ secrets.GCS_AUTH_URI }}
+          GCS_TOKEN_URI: ${{ secrets.GCS_TOKEN_URI }}
+          GCS_AUTH_PROVIDER_CERT_URL: ${{ secrets.GCS_AUTH_PROVIDER_CERT_URL }}
+          NEXT_PUBLIC_MAX_FILE_SIZE: 10485760
+          NEXT_PUBLIC_ALLOWED_FORMATS: image/jpeg,image/png,image/webp
+
+      - name: Build verification
+        run: |
+          echo "✅ Build completed successfully"
+          echo "Deployment to Vercel is automatic on push to main"
+          echo "See vercel.json for configuration"
