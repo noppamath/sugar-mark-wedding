@@ -59,7 +59,7 @@ export default function GalleryPage() {
 
           {loading ? (
             <div className="flex items-center justify-center gap-2 py-12">
-              <Loader className="w-6 h-6 animate-spin text-rose-500" />
+              <Loader className="w-6 h-6 animate-spin text-cyan-500" />
               <span>Loading gallery...</span>
             </div>
           ) : photos.length === 0 ? (
@@ -73,7 +73,7 @@ export default function GalleryPage() {
               </p>
               <Link
                 href="/upload"
-                className="inline-block bg-rose-500 text-white px-8 py-3 rounded-lg hover:bg-rose-600 transition"
+                className="inline-block bg-cyan-500 text-white px-8 py-3 rounded-lg hover:bg-cyan-600 transition"
               >
                 Upload Photos
               </Link>

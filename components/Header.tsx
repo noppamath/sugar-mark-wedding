@@ -12,19 +12,16 @@ export default function Header() {
           <span className="text-2xl font-bold text-gray-800">Sugar & Mark</span>
         </Link>
         <div className="flex gap-8">
-          <Link href="/schedule" className="text-gray-700 hover:text-rose-500 transition">
+          <Link href="/schedule" className="text-gray-700 hover:text-cyan-500 transition">
             Schedule
           </Link>
-          <Link href="/venue" className="text-gray-700 hover:text-rose-500 transition">
+          <Link href="/venue" className="text-gray-700 hover:text-cyan-500 transition">
             Venue
           </Link>
-          <Link href="/ceremony" className="text-gray-700 hover:text-rose-500 transition">
-            Ceremony
-          </Link>
-          <Link href="/gallery" className="text-gray-700 hover:text-rose-500 transition">
+          <Link href="/gallery" className="text-gray-700 hover:text-cyan-500 transition">
             Gallery
           </Link>
-          <Link href="/upload" className="bg-rose-500 text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition">
+          <Link href="/upload" className="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition">
             Share Photos
           </Link>
         </div>

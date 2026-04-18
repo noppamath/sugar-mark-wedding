@@ -1,0 +1,18 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "env": [
+    "GCS_PROJECT_ID",
+    "GCS_BUCKET_NAME",
+    "GCS_PRIVATE_KEY_ID",
+    "GCS_PRIVATE_KEY",
+    "GCS_CLIENT_EMAIL",
+    "GCS_CLIENT_ID",
+    "GCS_AUTH_URI",
+    "GCS_TOKEN_URI",
+    "GCS_AUTH_PROVIDER_CERT_URL",
+    "NEXT_PUBLIC_MAX_FILE_SIZE",
+    "NEXT_PUBLIC_ALLOWED_FORMATS"
+  ]
+}

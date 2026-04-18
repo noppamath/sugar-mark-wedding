@@ -86,14 +86,14 @@ export default function VenuePage() {
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="flex items-start gap-3">
-                <MapPin className="w-6 h-6 text-rose-500 flex-shrink-0 mt-1" />
+                <MapPin className="w-6 h-6 text-cyan-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-800">Address</p>
                   <p className="text-gray-600">{venue.address}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Phone className="w-6 h-6 text-rose-500 flex-shrink-0 mt-1" />
+                <Phone className="w-6 h-6 text-cyan-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-800">Phone</p>
                   <p className="text-gray-600">{venue.phone}</p>
