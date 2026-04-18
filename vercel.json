@@ -2,17 +2,39 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "env": [
-    "GCS_PROJECT_ID",
-    "GCS_BUCKET_NAME",
-    "GCS_PRIVATE_KEY_ID",
-    "GCS_PRIVATE_KEY",
-    "GCS_CLIENT_EMAIL",
-    "GCS_CLIENT_ID",
-    "GCS_AUTH_URI",
-    "GCS_TOKEN_URI",
-    "GCS_AUTH_PROVIDER_CERT_URL",
-    "NEXT_PUBLIC_MAX_FILE_SIZE",
-    "NEXT_PUBLIC_ALLOWED_FORMATS"
-  ]
+  "env": {
+    "GCS_PROJECT_ID": {
+      "description": "Google Cloud Storage project ID"
+    },
+    "GCS_BUCKET_NAME": {
+      "description": "Google Cloud Storage bucket name"
+    },
+    "GCS_PRIVATE_KEY_ID": {
+      "description": "GCS service account private key ID"
+    },
+    "GCS_PRIVATE_KEY": {
+      "description": "GCS service account private key (with escaped newlines)"
+    },
+    "GCS_CLIENT_EMAIL": {
+      "description": "GCS service account client email"
+    },
+    "GCS_CLIENT_ID": {
+      "description": "GCS service account client ID"
+    },
+    "GCS_AUTH_URI": {
+      "description": "GCS authentication URI"
+    },
+    "GCS_TOKEN_URI": {
+      "description": "GCS token URI"
+    },
+    "GCS_AUTH_PROVIDER_CERT_URL": {
+      "description": "GCS auth provider certificate URL"
+    },
+    "NEXT_PUBLIC_MAX_FILE_SIZE": {
+      "description": "Maximum file size for uploads in bytes (10485760 = 10MB)"
+    },
+    "NEXT_PUBLIC_ALLOWED_FORMATS": {
+      "description": "Allowed file formats for uploads"
+    }
+  }
 }
