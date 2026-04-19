@@ -87,14 +87,15 @@ export default function Home() {
 
     loadPhotos();
     loadTransitionImages();
-    const interval = setInterval(loadPhotos, 30000);
+    // Reduced polling interval from 30s to 60s for better performance
+    const interval = setInterval(loadPhotos, 60000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <main id="main-content" className="min-h-screen bg-gradient-to-b from-white to-gray-50">
         {/* Hero Section */}
         <AnimatedSection>
           <section className="bg-gradient-to-b from-cyan-50 to-white py-20">

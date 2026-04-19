@@ -51,7 +51,7 @@ export default function VenuePage() {
     return (
       <>
         <Header />
-        <main className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <main id="main-content" className="min-h-screen bg-gray-50 flex items-center justify-center">
           <div>Loading venue information...</div>
         </main>
         <Footer />
@@ -63,7 +63,7 @@ export default function VenuePage() {
     return (
       <>
         <Header />
-        <main className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <main id="main-content" className="min-h-screen bg-gray-50 flex items-center justify-center">
           <div>Failed to load venue information</div>
         </main>
         <Footer />
@@ -74,7 +74,7 @@ export default function VenuePage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50">
+      <main id="main-content" className="min-h-screen bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 py-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center">
             {venue.name}
