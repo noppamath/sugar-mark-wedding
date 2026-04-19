@@ -98,7 +98,7 @@ export default function UploadForm({ onSuccess }: UploadFormProps) {
           />
           <label
             htmlFor="photo-input"
-            className="flex items-center justify-center gap-2 px-4 py-8 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-cyan-500 transition focus-within:ring-2 focus-within:ring-cyan-500"
+            className="flex items-center justify-center gap-2 px-4 py-8 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-primary-500 transition focus-within:ring-2 focus-within:ring-primary-500"
           >
             <Upload className="w-5 h-5 text-gray-400" aria-hidden="true" />
             <span className="text-gray-600">Click to upload or drag & drop</span>

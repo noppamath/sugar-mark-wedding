@@ -80,13 +80,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const variantStyles = {
       default: `
         border-gray-300 bg-white
-        focus-visible:outline-none focus-visible:border-cyan-500 focus-visible:ring-2 focus-visible:ring-cyan-100
+        focus-visible:outline-none focus-visible:border-primary-500 focus-visible:ring-2 focus-visible:ring-primary-100
         disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed
         placeholder-gray-400
       `,
       filled: `
         border-0 bg-gray-100
-        focus-visible:outline-none focus-visible:bg-white focus-visible:ring-2 focus-visible:ring-cyan-500
+        focus-visible:outline-none focus-visible:bg-white focus-visible:ring-2 focus-visible:ring-primary-500
         disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed
       `,
     };

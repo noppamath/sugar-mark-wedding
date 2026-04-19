@@ -33,7 +33,7 @@ export default function EventCountdown() {
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
     <div className="text-center">
-      <div className="bg-cyan-500 text-white rounded-lg p-4 min-w-20">
+      <div className="bg-primary-500 text-white rounded-lg p-4 min-w-20">
         <div className="text-3xl font-bold" aria-hidden="true">{String(value).padStart(2, '0')}</div>
       </div>
       <div className="text-gray-600 mt-2 font-semibold">{label}</div>

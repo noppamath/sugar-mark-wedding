@@ -58,9 +58,9 @@ export function Button({
   // Variant styles
   const variantStyles = {
     primary:
-      'bg-cyan-500 text-white hover:bg-cyan-600 active:bg-cyan-700 focus-visible:outline-cyan-500',
+      'bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700 focus-visible:outline-primary-500',
     secondary:
-      'bg-rose-500 text-white hover:bg-rose-600 active:bg-rose-700 focus-visible:outline-rose-500',
+      'bg-accent-400 text-white hover:bg-accent-500 active:bg-accent-600 focus-visible:outline-accent-400',
     ghost:
       'bg-transparent text-gray-700 hover:bg-gray-100 active:bg-gray-200 focus-visible:outline-gray-500',
     outline:

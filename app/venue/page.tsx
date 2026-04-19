@@ -86,21 +86,21 @@ export default function VenuePage() {
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="flex items-start gap-3">
-                <MapPin className="w-6 h-6 text-cyan-500 flex-shrink-0 mt-1" />
+                <MapPin className="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-800">Address</p>
                   <p className="text-gray-600">{venue.address}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Phone className="w-6 h-6 text-cyan-500 flex-shrink-0 mt-1" />
+                <Phone className="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-800">Phone</p>
                   <p className="text-gray-600">{venue.phone}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="w-6 h-6 text-rose-500 flex-shrink-0 mt-1" />
+                <Mail className="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-800">Email</p>
                   <p className="text-gray-600">{venue.email}</p>
@@ -115,7 +115,7 @@ export default function VenuePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {venue.amenities.map((amenity, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-rose-500 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-primary-500 flex-shrink-0" />
                   <span className="text-gray-700">{amenity}</span>
                 </div>
               ))}
@@ -125,7 +125,7 @@ export default function VenuePage() {
           {/* Parking */}
           <div className="bg-white rounded-lg shadow-md p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-              <ParkingCircle className="w-6 h-6 text-rose-500" />
+              <ParkingCircle className="w-6 h-6 text-primary-500" />
               Parking
             </h2>
             <div className="space-y-2 text-gray-700">

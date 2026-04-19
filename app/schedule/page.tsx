@@ -53,8 +53,8 @@ export default function SchedulePage() {
                 >
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-cyan-100 rounded-lg flex items-center justify-center">
-                        <Clock className="w-8 h-8 text-cyan-600" />
+                      <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center">
+                        <Clock className="w-8 h-8 text-primary-600" />
                       </div>
                     </div>
                     <div className="flex-grow">
@@ -66,7 +66,7 @@ export default function SchedulePage() {
                           <p className="text-gray-600 mt-1">{event.description}</p>
                         </div>
                         <div className="text-right">
-                          <div className="text-3xl font-bold text-cyan-500">
+                          <div className="text-3xl font-bold text-primary-500">
                             {event.time}
                           </div>
                           <div className="flex items-center gap-1 text-gray-500 mt-2">

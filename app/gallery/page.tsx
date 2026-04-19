@@ -46,7 +46,7 @@ export default function GalleryPage() {
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="flex justify-between items-center mb-12">
             <h1 className="text-4xl font-bold text-gray-800 flex items-center gap-3">
-              <Camera className="w-10 h-10 text-rose-500" aria-hidden="true" />
+              <Camera className="w-10 h-10 text-accent-400" aria-hidden="true" />
               Photo Gallery
             </h1>
             <Button href="/upload" variant="secondary" size="md">
@@ -56,7 +56,7 @@ export default function GalleryPage() {
 
           {loading ? (
             <div className="flex items-center justify-center gap-2 py-12">
-              <Loader className="w-6 h-6 animate-spin text-cyan-500" aria-hidden="true" />
+              <Loader className="w-6 h-6 animate-spin text-primary-500" aria-hidden="true" />
               <span>Loading gallery...</span>
             </div>
           ) : photos.length === 0 ? (

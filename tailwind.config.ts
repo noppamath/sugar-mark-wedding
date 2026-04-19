@@ -5,32 +5,32 @@ const config: Config = {
     extend: {
       // Colors - Explicit palette from design tokens
       colors: {
-        // Primary (Cyan)
+        // Primary (Pine Green) - Rocky Mountain forests
         primary: {
-          50: '#ecf8fc',
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#06b6d4',
-          600: '#0891b2',
-          700: '#0e7490',
-          800: '#155e75',
-          900: '#164e63',
+          50: '#f0f7f4',
+          100: '#d6ece5',
+          200: '#aed8cc',
+          300: '#7bbfad',
+          400: '#4da08a',
+          500: '#2c5f4a',
+          600: '#245040',
+          700: '#1d4235',
+          800: '#16342a',
+          900: '#0f261e',
         },
 
-        // Accent (Rose)
+        // Accent (Glacier Blue) - Rocky Mountain alpine lakes
         accent: {
-          50: '#fff1f2',
-          100: '#ffe4e6',
-          200: '#fecdd3',
-          300: '#fda29b',
-          400: '#f87171',
-          500: '#f43f5e',
-          600: '#e11d48',
-          700: '#be123c',
-          800: '#9d174d',
-          900: '#831843',
+          50: '#eef6f9',
+          100: '#cfe8f0',
+          200: '#9fd1e1',
+          300: '#6fb9d2',
+          400: '#4a90a4',
+          500: '#3d7a8c',
+          600: '#316475',
+          700: '#254e5d',
+          800: '#1a3845',
+          900: '#0f222e',
         },
 
         // Status colors

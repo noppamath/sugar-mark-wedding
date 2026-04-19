@@ -10,6 +10,30 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Primary - Pine Green (Rocky Mountain forests) */
+  --color-primary-50: #f0f7f4;
+  --color-primary-100: #d6ece5;
+  --color-primary-200: #aed8cc;
+  --color-primary-300: #7bbfad;
+  --color-primary-400: #4da08a;
+  --color-primary-500: #2c5f4a;
+  --color-primary-600: #245040;
+  --color-primary-700: #1d4235;
+  --color-primary-800: #16342a;
+  --color-primary-900: #0f261e;
+
+  /* Accent - Glacier Blue (Rocky Mountain alpine lakes) */
+  --color-accent-50: #eef6f9;
+  --color-accent-100: #cfe8f0;
+  --color-accent-200: #9fd1e1;
+  --color-accent-300: #6fb9d2;
+  --color-accent-400: #4a90a4;
+  --color-accent-500: #3d7a8c;
+  --color-accent-600: #316475;
+  --color-accent-700: #254e5d;
+  --color-accent-800: #1a3845;
+  --color-accent-900: #0f222e;
 }
 
 @media (prefers-color-scheme: dark) {

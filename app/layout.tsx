@@ -45,7 +45,7 @@ export default function RootLayout({
   const skipLink = (
     <a
       href="#main-content"
-      className="absolute top-0 left-0 -translate-y-full bg-cyan-600 text-white px-4 py-2 rounded focus:translate-y-0 focus:relative focus:z-50 transition-transform"
+      className="absolute top-0 left-0 -translate-y-full bg-primary-600 text-white px-4 py-2 rounded focus:translate-y-0 focus:relative focus:z-50 transition-transform"
     >
       Skip to main content
     </a>
