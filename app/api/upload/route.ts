@@ -8,7 +8,7 @@ let storage: Storage;
 
 try {
   // For local development with service account key file
-  const keyPath = process.env.GCS_KEY_PATH || path.join(process.cwd(), 'gcs-key.json');
+  const keyPath = process.env.GCS_KEY_PATH || path.join(/*turbopackIgnore: true*/ process.cwd(), 'gcs-key.json');
   
   if (fs.existsSync(keyPath)) {
     storage = new Storage({
@@ -97,7 +97,7 @@ export async function POST(request: NextRequest) {
     await file.makePublic();
 
     // Update gallery metadata
-    const metadataFile = path.join(process.cwd(), 'public/data/gallery-metadata.json');
+    const metadataFile = path.join(/*turbopackIgnore: true*/ process.cwd(), 'public/data/gallery-metadata.json');
     let metadata: any = { lastUpdated: new Date().toISOString(), photos: [] };
 
     if (fs.existsSync(metadataFile)) {
