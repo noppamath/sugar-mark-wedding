@@ -6,6 +6,7 @@ import EventCountdown from '@/components/EventCountdown';
 import AnimatedSection from '@/components/AnimatedSection';
 import PhotoTransition from '@/components/PhotoTransition';
 import EventActionsBar from '@/components/EventActionsBar';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Camera, Loader, Heart } from 'lucide-react';
 import Link from 'next/link';
@@ -48,7 +49,8 @@ interface Photo {
 export default function Home() {
   const [schedule, setSchedule] = useState<ScheduleEvent[]>([]);
   const [venue, setVenue] = useState<VenueData | null>(null);
-  const [photos, setPhotos] = useState<Photo[]>([]);
+  const [galleryPhotos, setGalleryPhotos] = useState<Photo[]>([]);
+  const [guestPhotos, setGuestPhotos] = useState<Photo[]>([]);
   const [transitionImages, setTransitionImages] = useState<Array<{ id: string; url: string }>>([]);
   const [loadingPhotos, setLoadingPhotos] = useState(false);
 
@@ -66,9 +68,16 @@ export default function Home() {
     const loadPhotos = async () => {
       setLoadingPhotos(true);
       try {
-        const res = await fetch('/api/gallery-images');
-        const data = await res.json();
-        setPhotos(data.photos || []);
+        const [galleryRes, guestRes] = await Promise.all([
+          fetch('/api/gallery-images'),
+          fetch('/api/photos'),
+        ]);
+        const [galleryData, guestData] = await Promise.all([
+          galleryRes.json(),
+          guestRes.json(),
+        ]);
+        setGalleryPhotos(galleryData.photos || []);
+        setGuestPhotos(guestData.photos || []);
       } catch (error) {
         console.error('Error loading photos:', error);
       } finally {
@@ -101,11 +110,17 @@ export default function Home() {
         <AnimatedSection>
           <section className="bg-gradient-to-b from-primary-50 to-white py-20">
             <div className="max-w-6xl mx-auto px-4 text-center">
-              <h1 className="text-6xl font-bold text-gray-800 mb-4">
-                Sugar & Mark
-              </h1>
+              <h1 className="sr-only">Sugar & Mark</h1>
+              <Image
+                src="/logo-dark.png"
+                alt="Sugar & Mark"
+                width={600}
+                height={240}
+                className="h-60 w-auto mx-auto mb-6"
+                priority
+              />
               <p className="text-2xl text-gray-600 mb-2">are getting married</p>
-              <p className="text-xl text-primary-500 font-semibold mb-8">June 14, 2026</p>
+              <p className="text-4xl text-primary-500 font-semibold mb-8">June 14, 2026</p>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Join us for an unforgettable celebration of love and commitment
               </p>
@@ -288,21 +303,35 @@ export default function Home() {
         <AnimatedSection delay={1200}>
           <section className="bg-gray-50 py-16">
             <div className="max-w-6xl mx-auto px-4">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">
-                Guest Photos
-              </h2>
-              <p className="text-center text-gray-600 mb-12">
-                Share your favorite moments from the celebration
-              </p>
+
+              {/* Curated Gallery */}
+              <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">Gallery</h2>
+              <p className="text-center text-gray-500 mb-10">A curated collection from Sugar & Mark</p>
 
               {loadingPhotos ? (
-                <div className="flex justify-center">
+                <div className="flex justify-center mb-16">
                   <Loader className="w-8 h-8 animate-spin text-primary-500" />
                 </div>
-              ) : photos.length === 0 ? (
+              ) : galleryPhotos.length === 0 ? (
+                <p className="text-center text-gray-400 mb-16">No gallery photos yet.</p>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                  {galleryPhotos.map((photo) => (
+                    <div key={photo.id} className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover:scale-105 transform duration-300">
+                      <img src={photo.url} alt="Gallery photo" className="w-full h-64 object-cover" />
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Guest Photos */}
+              <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">Guest Photos</h2>
+              <p className="text-center text-gray-500 mb-10">Moments shared by our guests</p>
+
+              {guestPhotos.length === 0 ? (
                 <div className="bg-white rounded-lg shadow-md p-16 text-center">
                   <Camera className="w-16 h-16 text-primary-500 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg font-semibold text-gray-800 mb-2">No photos yet</p>
+                  <p className="text-lg font-semibold text-gray-800 mb-2">No guest photos yet</p>
                   <p className="text-gray-600 mb-8">Be the first to share a photo from the celebration!</p>
                   <Link
                     href="/upload"
@@ -314,19 +343,9 @@ export default function Home() {
               ) : (
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    {photos.map((photo) => (
+                    {guestPhotos.map((photo) => (
                       <div key={photo.id} className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover:scale-105 transform duration-300">
-                        <img
-                          src={photo.url}
-                          alt={photo.guestName}
-                          className="w-full h-64 object-cover"
-                        />
-                        <div className="bg-white p-4">
-                          <p className="font-semibold text-gray-800">{photo.guestName}</p>
-                          <p className="text-sm text-gray-500">
-                            {new Date(photo.uploadedAt).toLocaleDateString()}
-                          </p>
-                        </div>
+                        <img src={photo.url} alt="Guest photo" className="w-full h-64 object-cover" />
                       </div>
                     ))}
                   </div>
@@ -340,6 +359,7 @@ export default function Home() {
                   </div>
                 </div>
               )}
+
             </div>
           </section>
         </AnimatedSection>
@@ -348,6 +368,13 @@ export default function Home() {
         <AnimatedSection delay={1400}>
           <section className="bg-gradient-to-r from-primary-500 to-accent-400 text-white py-16">
             <div className="max-w-4xl mx-auto text-center px-4">
+              <Image
+                src="/logo-white.png"
+                alt="Sugar & Mark"
+                width={360}
+                height={144}
+                className="h-36 w-auto mx-auto mb-6"
+              />
               <h2 className="text-4xl font-bold mb-6">Can't Wait to See You! 💕</h2>
               <p className="text-lg mb-8 opacity-90">
                 We'd love to have you celebrate this special day with us on June 14, 2026.

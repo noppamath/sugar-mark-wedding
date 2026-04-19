@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Heart } from 'lucide-react';
+import Image from 'next/image';
 import { Button } from '@/components/ui';
 
 export default function Header() {
@@ -16,11 +16,17 @@ export default function Header() {
       <nav className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center" aria-label="Main navigation">
         <Link
           href="/"
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 rounded"
+          className="hover:opacity-80 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 rounded"
           aria-label="Sugar & Mark Wedding Home"
         >
-          <Heart className="w-6 h-6 text-accent-400" aria-hidden="true" />
-          <span className="text-2xl font-bold text-gray-800">Sugar & Mark</span>
+          <Image
+            src="/logo-dark.png"
+            alt="Sugar & Mark"
+            width={120}
+            height={48}
+            className="h-12 w-auto"
+            priority
+          />
         </Link>
 
         <div className="flex gap-8 items-center">

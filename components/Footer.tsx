@@ -1,6 +1,6 @@
 'use client';
 
-import { Heart } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,10 +10,15 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-              <Heart className="w-5 h-5 text-accent-400" />
-              Sugar & Mark
-            </h3>
+            <div className="mb-4">
+              <Image
+                src="/logo-white.png"
+                alt="Sugar & Mark"
+                width={120}
+                height={48}
+                className="h-12 w-auto"
+              />
+            </div>
             <p className="text-gray-300">June 14, 2026</p>
           </div>
           <div>

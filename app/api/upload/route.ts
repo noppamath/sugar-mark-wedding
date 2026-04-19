@@ -36,7 +36,8 @@ try {
   console.error('Failed to initialize GCS:', error);
 }
 
-const BUCKET_NAME = process.env.GCS_BUCKET_NAME || 'sugar-mark-wedding-photos';
+const BUCKET_NAME = process.env.GCS_BUCKET_NAME || 'sugar-mark-wedding';
+const GUEST_PHOTOS_PREFIX = 'guest_photos/';
 const MAX_FILE_SIZE = 10485760; // 10MB
 
 export async function POST(request: NextRequest) {
@@ -69,7 +70,7 @@ export async function POST(request: NextRequest) {
     const timestamp = Date.now();
     const randomId = Math.random().toString(36).substring(7);
     const ext = photo.type.split('/')[1];
-    const filename = `${timestamp}-${randomId}.${ext}`;
+    const filename = `${GUEST_PHOTOS_PREFIX}${timestamp}-${randomId}.${ext}`;
 
     // Upload to GCS
     if (!storage) {
