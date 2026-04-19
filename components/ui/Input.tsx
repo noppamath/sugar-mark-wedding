@@ -79,13 +79,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     // Variant styles
     const variantStyles = {
       default: `
-        border-gray-300 bg-white
+        border-gray-300 bg-white text-gray-900
         focus-visible:outline-none focus-visible:border-primary-500 focus-visible:ring-2 focus-visible:ring-primary-100
         disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed
-        placeholder-gray-400
+        placeholder:text-gray-400
       `,
       filled: `
-        border-0 bg-gray-100
+        border-0 bg-gray-100 text-gray-900
         focus-visible:outline-none focus-visible:bg-white focus-visible:ring-2 focus-visible:ring-primary-500
         disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed
       `,

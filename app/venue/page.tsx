@@ -125,15 +125,15 @@ export default function VenuePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="flex items-center gap-3">
                 <CheckCircle className={`w-5 h-5 flex-shrink-0 ${venue.accessibility.wheelchair ? 'text-green-500' : 'text-gray-300'}`} />
-                <span>Wheelchair Accessible</span>
+                <span className="text-gray-700">Wheelchair Accessible</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle className={`w-5 h-5 flex-shrink-0 ${venue.accessibility.elevator ? 'text-green-500' : 'text-gray-300'}`} />
-                <span>Elevator</span>
+                <span className="text-gray-700">Elevator</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle className={`w-5 h-5 flex-shrink-0 ${venue.accessibility.parking ? 'text-green-500' : 'text-gray-300'}`} />
-                <span>Accessible Parking</span>
+                <span className="text-gray-700">Accessible Parking</span>
               </div>
             </div>
           </div>
