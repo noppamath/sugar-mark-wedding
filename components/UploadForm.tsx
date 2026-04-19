@@ -17,6 +17,8 @@ export default function UploadForm({ onSuccess }: UploadFormProps) {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const onSubmit = async (data: any) => {
     const file = data.photo[0];
@@ -58,6 +60,8 @@ export default function UploadForm({ onSuccess }: UploadFormProps) {
 
       setSuccess('Photo uploaded successfully!');
       reset();
+      setSelectedFile(null);
+      setPreviewUrl(null);
       onSuccess?.();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Upload failed');
@@ -95,14 +99,35 @@ export default function UploadForm({ onSuccess }: UploadFormProps) {
             accept="image/jpeg,image/png,image/webp"
             className="hidden"
             aria-describedby="photo-requirements"
+            onChange={(e) => {
+              const file = e.target.files?.[0] ?? null;
+              setSelectedFile(file);
+              if (previewUrl) URL.revokeObjectURL(previewUrl);
+              setPreviewUrl(file ? URL.createObjectURL(file) : null);
+            }}
           />
-          <label
-            htmlFor="photo-input"
-            className="flex items-center justify-center gap-2 px-4 py-8 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-primary-500 transition focus-within:ring-2 focus-within:ring-primary-500"
-          >
-            <Upload className="w-5 h-5 text-gray-400" aria-hidden="true" />
-            <span className="text-gray-600">Click to upload or drag & drop</span>
-          </label>
+          {selectedFile && previewUrl ? (
+            <label
+              htmlFor="photo-input"
+              className="flex flex-col items-center gap-3 p-4 border-2 border-primary-400 rounded-lg cursor-pointer hover:border-primary-500 transition bg-primary-50"
+            >
+              <img
+                src={previewUrl}
+                alt="Selected photo preview"
+                className="max-h-48 rounded object-contain"
+              />
+              <span className="text-sm text-primary-700 font-medium truncate max-w-full">{selectedFile.name}</span>
+              <span className="text-xs text-gray-400">Click to change</span>
+            </label>
+          ) : (
+            <label
+              htmlFor="photo-input"
+              className="flex items-center justify-center gap-2 px-4 py-8 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-primary-500 transition focus-within:ring-2 focus-within:ring-primary-500"
+            >
+              <Upload className="w-5 h-5 text-gray-400" aria-hidden="true" />
+              <span className="text-gray-600">Click to upload or drag &amp; drop</span>
+            </label>
+          )}
         </div>
         {errors.photo && (
           <p

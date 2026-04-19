@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Storage } from '@google-cloud/storage';
-import fs from 'fs';
 import path from 'path';
+import fs from 'fs';
 
 // Initialize GCS client
 let storage: Storage;
@@ -92,32 +92,6 @@ export async function POST(request: NextRequest) {
         },
       },
     });
-
-    // Make file public
-    await file.makePublic();
-
-    // Update gallery metadata
-    const metadataFile = path.join(/*turbopackIgnore: true*/ process.cwd(), 'public/data/gallery-metadata.json');
-    let metadata: any = { lastUpdated: new Date().toISOString(), photos: [] };
-
-    if (fs.existsSync(metadataFile)) {
-      const content = fs.readFileSync(metadataFile, 'utf-8');
-      metadata = JSON.parse(content);
-    }
-
-    if (!metadata.photos) {
-      metadata.photos = [];
-    }
-
-    metadata.photos.push({
-      id: filename,
-      url: `https://storage.googleapis.com/${BUCKET_NAME}/${filename}`,
-      guestName: guestName || 'Anonymous',
-      uploadedAt: new Date().toISOString(),
-    });
-
-    metadata.lastUpdated = new Date().toISOString();
-    fs.writeFileSync(metadataFile, JSON.stringify(metadata, null, 2));
 
     return NextResponse.json(
       {

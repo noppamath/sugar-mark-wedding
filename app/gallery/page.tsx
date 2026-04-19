@@ -24,7 +24,7 @@ export default function GalleryPage() {
       try {
         const [galleryRes, guestRes] = await Promise.all([
           fetch('/api/gallery-images'),
-          fetch('/api/photos'),
+          fetch('/api/guest-photos'),
         ]);
         const [galleryData, guestData] = await Promise.all([
           galleryRes.json(),
