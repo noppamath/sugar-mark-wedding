@@ -94,12 +94,15 @@ export default function UploadForm({ onSuccess }: UploadFormProps) {
         <div className="relative">
           <input
             id="photo-input"
-            type="file"
             {...register('photo', { required: 'Photo is required' })}
+            type="file"
             accept="image/jpeg,image/png,image/webp"
             className="hidden"
             aria-describedby="photo-requirements"
             onChange={(e) => {
+              // Notify react-hook-form first
+              register('photo', { required: 'Photo is required' }).onChange(e);
+              // Then update preview state
               const file = e.target.files?.[0] ?? null;
               setSelectedFile(file);
               if (previewUrl) URL.revokeObjectURL(previewUrl);
