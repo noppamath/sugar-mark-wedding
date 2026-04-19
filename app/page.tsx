@@ -8,7 +8,7 @@ import PhotoTransition from '@/components/PhotoTransition';
 import EventActionsBar from '@/components/EventActionsBar';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Camera, Loader, Heart } from 'lucide-react';
+import { MapPin, ExternalLink, Clock, Camera, Loader } from 'lucide-react';
 import Link from 'next/link';
 
 interface ScheduleEvent {
@@ -21,14 +21,12 @@ interface ScheduleEvent {
 interface VenueData {
   name: string;
   address: string;
-  phone: string;
-  email: string;
-  amenities: string[];
-  parking: {
-    available: boolean;
-    spaces: number;
-    valet: boolean;
-    cost: string;
+  mapsUrl: string;
+  description: string;
+  directions: string;
+  coordinates: {
+    latitude: number;
+    longitude: number;
   };
   accessibility: {
     wheelchair: boolean;
@@ -146,7 +144,7 @@ export default function Home() {
           <section className="bg-gray-50 py-16">
             <div className="max-w-6xl mx-auto px-4">
               <div className="max-w-2xl mx-auto text-center">
-                <Heart className="w-12 h-12 text-accent-400 mx-auto mb-6" />
+                <span className="text-5xl text-accent-400 mx-auto mb-6 block">♥</span>
                 <h2 className="text-3xl font-bold mb-6 text-gray-800">
                   We're thrilled you're here!
                 </h2>
@@ -174,72 +172,35 @@ export default function Home() {
                 The Venue
               </h2>
               {venue && (
-                <div className="bg-white rounded-lg shadow-lg p-8">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">{venue.name}</h3>
-
-                  <div className="grid md:grid-cols-2 gap-8 mb-8 pb-8 border-b">
-                    <div>
-                      <div className="flex gap-4 mb-6">
-                        <MapPin className="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
-                        <div>
-                          <p className="font-semibold text-gray-800">{venue.address}</p>
-                          <p className="text-gray-600 text-sm mt-1">Capacity: 200 guests</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-4 mb-6">
-                        <Phone className="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
-                        <p className="text-gray-700">{venue.phone}</p>
-                      </div>
-                      <div className="flex gap-4">
-                        <Mail className="w-6 h-6 text-primary-500 flex-shrink-0 mt-1" />
-                        <p className="text-gray-700">{venue.email}</p>
-                      </div>
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  {/* Map embed */}
+                  <iframe
+                    src={`https://maps.google.com/maps?q=${encodeURIComponent(venue.name + ', ' + venue.address)}&output=embed&z=16`}
+                    width="100%"
+                    height="380"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`Map showing ${venue.name}`}
+                  />
+                  {/* Venue info below map */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">{venue.name}</h3>
+                    <p className="text-primary-600 font-semibold mb-3">Royal Maneeya Ballroom</p>
+                    <div className="flex items-start gap-3 mb-4">
+                      <MapPin className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                      <p className="text-gray-600">{venue.address}</p>
                     </div>
-
-                    <div>
-                      <h4 className="font-bold text-gray-800 mb-4">✨ Amenities</h4>
-                      <ul className="space-y-2">
-                        {venue.amenities?.map((amenity, i) => (
-                          <li key={i} className="text-gray-700 flex items-center gap-2">
-                            <span className="text-primary-500">✓</span> {amenity}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                      <h4 className="font-bold text-gray-800 mb-3">🚗 Parking</h4>
-                      <p className="text-gray-700">
-                        {typeof venue.parking === 'string' 
-                          ? venue.parking 
-                          : `${venue.parking?.spaces || 0} spaces - ${venue.parking?.cost || 'Free'} (Valet: ${venue.parking?.valet ? 'Yes' : 'No'})`}
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800 mb-3">♿ Accessibility</h4>
-                      <ul className="space-y-1">
-                        {typeof venue.accessibility === 'object' && !Array.isArray(venue.accessibility) ? (
-                          Object.entries(venue.accessibility).map(([key, value]) => (
-                            value && (
-                              <li key={key} className="text-gray-700 flex items-center gap-2">
-                                <span className="text-primary-500">✓</span> 
-                                {key === 'wheelchair' ? 'Wheelchair Access' : 
-                                 key === 'elevator' ? 'Elevator Access' : 
-                                 key === 'parking' ? 'Accessible Parking' : key}
-                              </li>
-                            )
-                          ))
-                        ) : Array.isArray(venue.accessibility) ? (
-                          venue.accessibility.map((item, i) => (
-                            <li key={i} className="text-gray-700 flex items-center gap-2">
-                              <span className="text-primary-500">✓</span> {item}
-                            </li>
-                          ))
-                        ) : null}
-                      </ul>
-                    </div>
+                    <a
+                      href={venue.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Open in Google Maps
+                    </a>
                   </div>
                 </div>
               )}

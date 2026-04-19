@@ -1,29 +1,14 @@
 {
-  "name": "Grand Ballroom Estate",
-  "address": "123 Wedding Lane, Celebration City, CC 12345",
-  "phone": "+1 (555) 123-4567",
-  "email": "info@grandbollroom.com",
-  "description": "A beautiful and elegant venue perfect for your special day",
-  "capacity": "200 guests",
-  "amenities": [
-    "Indoor ceremony hall",
-    "Reception ballroom",
-    "Bridal suite",
-    "Parking for 150 vehicles",
-    "Full catering facilities",
-    "Dance floor with DJ booth"
-  ],
+  "name": "Renaissance Bangkok Ratchaprasong Hotel",
+  "eventRoom": "Royal Maneeya Ballroom",
+  "address": "Lumphini, Pathum Wan, Bangkok 10330, Thailand",
+  "mapsUrl": "https://maps.app.goo.gl/UUSj88akKYJEQ5Me7",
+  "description": "A luxurious 5-star hotel in the heart of Bangkok's Ratchaprasong district, offering world-class facilities and elegant event spaces.",
   "coordinates": {
-    "latitude": 40.7128,
-    "longitude": -74.0060
+    "latitude": 13.7463,
+    "longitude": 100.5415
   },
-  "parking": {
-    "available": true,
-    "spaces": 150,
-    "valet": true,
-    "cost": "Free"
-  },
-  "directions": "Located off Main Street, 5 minutes from downtown. See our website for detailed directions.",
+  "directions": "Located in Lumphini, Pathum Wan, Bangkok. See Google Maps for detailed directions.",
   "accessibility": {
     "wheelchair": true,
     "elevator": true,

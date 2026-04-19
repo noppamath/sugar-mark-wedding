@@ -23,14 +23,20 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="font-bold mb-4">Venue</h4>
-            <p className="text-gray-300">Grand Ballroom Estate</p>
-            <p className="text-gray-300">123 Wedding Lane</p>
-            <p className="text-gray-300">Celebration City, CC 12345</p>
+            <p className="text-gray-300">Renaissance Bangkok Ratchaprasong Hotel</p>
+            <p className="text-gray-300">Lumphini, Pathum Wan</p>
+            <p className="text-gray-300">Bangkok 10330, Thailand</p>
           </div>
           <div>
-            <h4 className="font-bold mb-4">Contact</h4>
-            <p className="text-gray-300">info@grandbollroom.com</p>
-            <p className="text-gray-300">+1 (555) 123-4567</p>
+            <h4 className="font-bold mb-4">Location</h4>
+            <a
+              href="https://maps.app.goo.gl/UUSj88akKYJEQ5Me7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent-300 hover:text-accent-200 transition-colors"
+            >
+              View on Google Maps
+            </a>
           </div>
         </div>
         <div className="border-t border-gray-700 pt-8 text-center text-gray-400">

@@ -6,12 +6,12 @@ import { Calendar, ChevronDown, Mail } from 'lucide-react';
 const EVENT = {
   title: "Sugar & Mark's Wedding",
   description: 'Join us for our wedding celebration!',
-  location: 'Grand Ballroom Estate, 123 Wedding Lane, Celebration City, CC 12345',
+  location: 'Renaissance Bangkok Ratchaprasong Hotel, Lumphini, Pathum Wan, Bangkok 10330, Thailand',
   /** Date/time in YYYYMMDDTHHMMSS (local, no timezone suffix) */
-  startLocal: '20260614T140000',
-  endLocal: '20260614T230000',
+  startLocal: '20260614T180000',
+  endLocal: '20260614T210000',
   /** ISO date range for Google Calendar (local floating) */
-  googleDates: '20260614T140000/20260614T230000',
+  googleDates: '20260614T180000/20260614T210000',
 };
 
 /** Google Calendar URL */

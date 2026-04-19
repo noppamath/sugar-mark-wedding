@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Sugar & Mark's Wedding",
-  description: "Join us for the celebration of Sugar & Mark's wedding. View the schedule, venue details, and share your favorite moments in our guest gallery.",
-  keywords: "wedding, celebration, gallery, schedule, venue, Sugar, Mark",
+  description: "Join us for the celebration of Sugar & Mark's wedding on June 14, 2026 at Renaissance Bangkok Ratchaprasong Hotel. View the schedule, venue details, and share your favorite moments.",
+  keywords: "wedding, celebration, gallery, schedule, venue, Sugar, Mark, Bangkok, Renaissance",
   authors: [{ name: "Sugar & Mark" }],
   openGraph: {
     title: "Sugar & Mark's Wedding Celebration",
-    description: "Join us for a special day of love and celebration",
+    description: "Join us for a special day of love and celebration in Bangkok",
     type: "website",
     locale: "en_US",
     siteName: "Sugar & Mark Wedding",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Sugar & Mark's Wedding",
-    description: "Join us for the celebration of our special day",
+    description: "Join us for the celebration of our special day in Bangkok",
   },
   robots: {
     index: true,
