@@ -3,7 +3,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useEffect, useState } from 'react';
-import { Clock, MapPin } from 'lucide-react';
+import { Clock, MapPin, Camera, PartyPopper, Crown, Wine, Mic2, Flower2, Heart } from 'lucide-react';
 
 interface Event {
   id: number;
@@ -12,6 +12,16 @@ interface Event {
   description: string;
   location: string;
 }
+
+const EVENT_ICONS: Record<number, React.ElementType> = {
+  1: Camera,
+  2: PartyPopper,
+  3: Crown,
+  4: Wine,
+  5: Mic2,
+  6: Flower2,
+  7: Heart,
+};
 
 export default function SchedulePage() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -36,7 +46,7 @@ export default function SchedulePage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50">
+      <main id="main-content" className="min-h-screen bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 py-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-12 text-center">
             Wedding Schedule
@@ -46,15 +56,17 @@ export default function SchedulePage() {
             <div className="text-center py-8">Loading schedule...</div>
           ) : (
             <div className="space-y-6">
-              {events.map((event) => (
+              {events.map((event) => {
+                const Icon = EVENT_ICONS[event.id] ?? Clock;
+                return (
                 <div
                   key={event.id}
                   className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition"
                 >
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-cyan-100 rounded-lg flex items-center justify-center">
-                        <Clock className="w-8 h-8 text-cyan-600" />
+                      <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center">
+                        <Icon className="w-8 h-8 text-primary-600" />
                       </div>
                     </div>
                     <div className="flex-grow">
@@ -66,7 +78,7 @@ export default function SchedulePage() {
                           <p className="text-gray-600 mt-1">{event.description}</p>
                         </div>
                         <div className="text-right">
-                          <div className="text-3xl font-bold text-cyan-500">
+                          <div className="text-3xl font-bold text-primary-500">
                             {event.time}
                           </div>
                           <div className="flex items-center gap-1 text-gray-500 mt-2">
@@ -78,7 +90,8 @@ export default function SchedulePage() {
                     </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>

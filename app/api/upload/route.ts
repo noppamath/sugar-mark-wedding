@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Storage } from '@google-cloud/storage';
-import fs from 'fs';
 import path from 'path';
+import fs from 'fs';
 
 // Initialize GCS client
 let storage: Storage;
 
 try {
   // For local development with service account key file
-  const keyPath = process.env.GCS_KEY_PATH || path.join(process.cwd(), 'gcs-key.json');
+  const keyPath = process.env.GCS_KEY_PATH || path.join(/*turbopackIgnore: true*/ process.cwd(), 'gcs-key.json');
   
   if (fs.existsSync(keyPath)) {
     storage = new Storage({
@@ -36,7 +36,8 @@ try {
   console.error('Failed to initialize GCS:', error);
 }
 
-const BUCKET_NAME = process.env.GCS_BUCKET_NAME || 'sugar-mark-wedding-photos';
+const BUCKET_NAME = process.env.GCS_BUCKET_NAME || 'sugar-mark-wedding';
+const GUEST_PHOTOS_PREFIX = 'guest_photos/';
 const MAX_FILE_SIZE = 10485760; // 10MB
 
 export async function POST(request: NextRequest) {
@@ -69,7 +70,7 @@ export async function POST(request: NextRequest) {
     const timestamp = Date.now();
     const randomId = Math.random().toString(36).substring(7);
     const ext = photo.type.split('/')[1];
-    const filename = `${timestamp}-${randomId}.${ext}`;
+    const filename = `${GUEST_PHOTOS_PREFIX}${timestamp}-${randomId}.${ext}`;
 
     // Upload to GCS
     if (!storage) {
@@ -91,32 +92,6 @@ export async function POST(request: NextRequest) {
         },
       },
     });
-
-    // Make file public
-    await file.makePublic();
-
-    // Update gallery metadata
-    const metadataFile = path.join(process.cwd(), 'public/data/gallery-metadata.json');
-    let metadata: any = { lastUpdated: new Date().toISOString(), photos: [] };
-
-    if (fs.existsSync(metadataFile)) {
-      const content = fs.readFileSync(metadataFile, 'utf-8');
-      metadata = JSON.parse(content);
-    }
-
-    if (!metadata.photos) {
-      metadata.photos = [];
-    }
-
-    metadata.photos.push({
-      id: filename,
-      url: `https://storage.googleapis.com/${BUCKET_NAME}/${filename}`,
-      guestName: guestName || 'Anonymous',
-      uploadedAt: new Date().toISOString(),
-    });
-
-    metadata.lastUpdated = new Date().toISOString();
-    fs.writeFileSync(metadataFile, JSON.stringify(metadata, null, 2));
 
     return NextResponse.json(
       {

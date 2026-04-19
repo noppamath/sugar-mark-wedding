@@ -33,15 +33,23 @@ export default function EventCountdown() {
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
     <div className="text-center">
-      <div className="bg-cyan-500 text-white rounded-lg p-4 min-w-20">
-        <div className="text-3xl font-bold">{String(value).padStart(2, '0')}</div>
+      <div className="bg-primary-500 text-white rounded-lg p-4 min-w-20">
+        <div className="text-3xl font-bold" aria-hidden="true">{String(value).padStart(2, '0')}</div>
       </div>
       <div className="text-gray-600 mt-2 font-semibold">{label}</div>
     </div>
   );
 
+  const countdownText = `${countdown.days} days, ${countdown.hours} hours, ${countdown.minutes} minutes, and ${countdown.seconds} seconds until the wedding`;
+
   return (
-    <div className="flex justify-center gap-4">
+    <div
+      className="flex justify-center gap-4"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label={countdownText}
+      role="status"
+    >
       <TimeUnit value={countdown.days} label="Days" />
       <TimeUnit value={countdown.hours} label="Hours" />
       <TimeUnit value={countdown.minutes} label="Minutes" />

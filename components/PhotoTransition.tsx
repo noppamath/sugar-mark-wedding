@@ -8,9 +8,9 @@ interface PhotoTransitionProps {
 
 export default function PhotoTransition({ imageUrl, caption, height = 'md' }: PhotoTransitionProps) {
   const heightClasses = {
-    sm: 'h-48',
-    md: 'h-80',
-    lg: 'h-screen',
+    sm: 'h-48 sm:h-64 md:h-80',
+    md: 'h-64 sm:h-80 md:h-screen lg:h-screen',
+    lg: 'h-72 sm:h-96 md:h-screen lg:h-screen',
   };
 
   return (

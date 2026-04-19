@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://sugar-mark-wedding.vercel.app/sitemap.xml

@@ -3,45 +3,52 @@
   "events": [
     {
       "id": 1,
-      "time": "14:00",
-      "title": "Guests Arrival",
-      "description": "Welcome and registration of guests",
-      "location": "Venue Entrance"
+      "time": "18:00",
+      "title": "Photo Session & Buffet Dinner",
+      "description": "Buffet dinner opens and photo session begins",
+      "location": "Royal Maneeya Ballroom"
     },
     {
       "id": 2,
-      "time": "14:30",
-      "title": "Ceremony Begins",
-      "description": "The main wedding ceremony",
-      "location": "Main Hall"
+      "time": "19:00",
+      "title": "Wedding Reception",
+      "description": "Wedding reception begins",
+      "location": "Royal Maneeya Ballroom"
     },
     {
       "id": 3,
-      "time": "15:30",
-      "title": "Photos & Cocktail Hour",
-      "description": "Professional photos and light refreshments",
-      "location": "Photo Area & Lounge"
+      "time": "19:30",
+      "title": "Bride Entrance",
+      "description": "The bride makes her grand entrance",
+      "location": "Royal Maneeya Ballroom"
     },
     {
       "id": 4,
-      "time": "16:30",
-      "title": "Dinner Reception",
-      "description": "Dinner service and toasts",
-      "location": "Main Hall"
+      "time": "19:45",
+      "title": "Champagne Toast",
+      "description": "Celebrating with a champagne toast",
+      "location": "Royal Maneeya Ballroom"
     },
     {
       "id": 5,
-      "time": "18:00",
-      "title": "First Dance",
-      "description": "First dance and dancing begins",
-      "location": "Main Hall"
+      "time": "20:00",
+      "title": "Wedding Toast",
+      "description": "Heartfelt toasts and speeches",
+      "location": "Royal Maneeya Ballroom"
     },
     {
       "id": 6,
-      "time": "22:00",
-      "title": "Send-Off",
-      "description": "Farewell and end of celebration",
-      "location": "Venue Entrance"
+      "time": "20:20",
+      "title": "Bouquet Toss",
+      "description": "The bouquet toss",
+      "location": "Royal Maneeya Ballroom"
+    },
+    {
+      "id": 7,
+      "time": "21:00",
+      "title": "Farewell",
+      "description": "End of celebration — thank you for celebrating with us!",
+      "location": "Royal Maneeya Ballroom"
     }
   ]
 }
