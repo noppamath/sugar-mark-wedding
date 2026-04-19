@@ -8,15 +8,26 @@ import PhotoTransition from '@/components/PhotoTransition';
 import EventActionsBar from '@/components/EventActionsBar';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { MapPin, ExternalLink, Clock, Camera, Loader } from 'lucide-react';
+import { MapPin, ExternalLink, Clock, Camera, Loader, PartyPopper, Crown, Wine, Mic2, Flower2, Heart } from 'lucide-react';
 import Link from 'next/link';
 
 interface ScheduleEvent {
+  id?: number;
   time: string;
   title: string;
   description: string;
   location: string;
 }
+
+const SCHEDULE_ICONS: Record<string, React.ElementType> = {
+  'Photo Session & Buffet Dinner': Camera,
+  'Wedding Reception': PartyPopper,
+  'Bride Entrance': Crown,
+  'Champagne Toast': Wine,
+  'Wedding Toast': Mic2,
+  'Bouquet Toss': Flower2,
+  'Farewell': Heart,
+};
 
 interface VenueData {
   name: string;
@@ -223,14 +234,16 @@ export default function Home() {
                 Wedding Day Schedule
               </h2>
               <div className="space-y-6">
-                {schedule?.map((event, index) => (
+                {schedule?.map((event, index) => {
+                  const Icon = SCHEDULE_ICONS[event.title] ?? Clock;
+                  return (
                   <div
                     key={index}
                     className="bg-gradient-to-r from-primary-50 to-white rounded-lg shadow-md p-6 border-l-4 border-primary-500 hover:shadow-lg transition"
                   >
                     <div className="flex gap-6 items-start">
                       <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-8 h-8 text-primary-600" />
+                        <Icon className="w-8 h-8 text-primary-600" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-2">
@@ -247,7 +260,8 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </section>
