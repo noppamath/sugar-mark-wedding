@@ -53,10 +53,17 @@ export async function GET() {
       /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
     );
 
+    // Fisher-Yates shuffle, then take 15
+    for (let i = imageFiles.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [imageFiles[i], imageFiles[j]] = [imageFiles[j], imageFiles[i]];
+    }
+    const selected = imageFiles.slice(0, 15);
+
     // Guest photos use signed URLs (bucket is not public)
     const photos = (
       await Promise.all(
-        imageFiles.map(async (file) => {
+        selected.map(async (file) => {
           try {
             const [signedUrl] = await file.getSignedUrl({
               version: 'v4',
@@ -76,9 +83,6 @@ export async function GET() {
         })
       )
     ).filter((p) => p !== null);
-
-    // Newest first
-    photos.sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
 
     return NextResponse.json({ photos });
   } catch (error) {

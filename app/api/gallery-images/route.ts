@@ -50,14 +50,21 @@ export async function GET() {
     const bucket = storage.bucket(BUCKET_NAME);
     const [files] = await bucket.getFiles({ prefix: 'gellery/' });
 
-    // Filter to image files only and generate signed URLs
+    // Filter to image files only, shuffle randomly, and take 15
     const imageFiles = files.filter((file) => {
       const name = file.name.toLowerCase();
       return /\.(jpg|jpeg|png|webp|gif)$/i.test(name);
     });
 
+    // Fisher-Yates shuffle
+    for (let i = imageFiles.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [imageFiles[i], imageFiles[j]] = [imageFiles[j], imageFiles[i]];
+    }
+    const selected = imageFiles.slice(0, 15);
+
     const photos = await Promise.all(
-      imageFiles.map(async (file) => {
+      selected.map(async (file) => {
         try {
           const [signedUrl] = await file.getSignedUrl({
             version: 'v4',
