@@ -16,11 +16,16 @@ interface Event {
 const EVENT_ICONS: Record<number, React.ElementType> = {
   1: Camera,
   2: PartyPopper,
-  3: Crown,
-  4: Wine,
-  5: Mic2,
-  6: Flower2,
-  7: Heart,
+  3: Wine,
+  4: Mic2,
+  5: Camera,
+  6: Crown,
+  7: Mic2,
+  8: Wine,
+  9: PartyPopper,
+  10: Flower2,
+  11: Camera,
+  12: Heart,
 };
 
 export default function SchedulePage() {
