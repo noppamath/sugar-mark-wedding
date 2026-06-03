@@ -18,14 +18,10 @@ const EVENT_ICONS: Record<number, React.ElementType> = {
   2: PartyPopper,
   3: Wine,
   4: Mic2,
-  5: Camera,
-  6: Crown,
-  7: Mic2,
-  8: Wine,
-  9: PartyPopper,
-  10: Flower2,
-  11: Camera,
-  12: Heart,
+  5: Crown,
+  6: Flower2,
+  7: Camera,
+  8: Heart,
 };
 
 export default function SchedulePage() {
