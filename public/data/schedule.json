@@ -31,55 +31,27 @@
     },
     {
       "id": 5,
-      "time": "19:10",
-      "title": "Pre-Entrance Video",
-      "description": "A special video about the couple's journey",
-      "location": "Royal Maneeya Ballroom"
-    },
-    {
-      "id": 6,
       "time": "19:15",
       "title": "Couple's Entrance",
       "description": "The couple makes their grand entrance with a live band",
       "location": "Royal Maneeya Ballroom"
     },
     {
-      "id": 7,
-      "time": "19:25",
-      "title": "Speeches & Toasts",
-      "description": "Heartfelt speeches from the chairman, family, and friends",
-      "location": "Royal Maneeya Ballroom"
-    },
-    {
-      "id": 8,
-      "time": "19:40",
-      "title": "Candle Lighting & Champagne",
-      "description": "The couple lights candles and pours champagne together",
-      "location": "Royal Maneeya Ballroom"
-    },
-    {
-      "id": 9,
-      "time": "19:50",
-      "title": "Online Game",
-      "description": "A fun interactive game — winners receive special prizes",
-      "location": "Royal Maneeya Ballroom"
-    },
-    {
-      "id": 10,
+      "id": 6,
       "time": "19:55",
       "title": "Bouquet Toss",
       "description": "The bouquet toss",
       "location": "Royal Maneeya Ballroom"
     },
     {
-      "id": 11,
+      "id": 7,
       "time": "20:00",
       "title": "Guest Send-off",
       "description": "Couple takes photos and thanks guests at the backdrop",
       "location": "Royal Maneeya Ballroom"
     },
     {
-      "id": 12,
+      "id": 8,
       "time": "21:00",
       "title": "Farewell",
       "description": "End of celebration — thank you for celebrating with us!",
